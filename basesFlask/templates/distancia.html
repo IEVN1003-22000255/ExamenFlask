@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block container %}
+
+<h2 class="mb-4">Distancia entre dos puntos</h2>
+
+<form action="/distancia" method="post">
+    <div class="row">
+        <!-- Punto A (x1, y1) -->
+        <div class="col-md-6 mb-3">
+            <h4>Punto A (x1, y1)</h4>
+            <div class="mb-2">
+                <label for="x1" class="form-label">Coordenada X1:</label>
+                <input type="number" step="any" class="form-control" id="x1" name="x1" value="{{ x1 }}">
+            </div>
+            <div class="mb-2">
+                <label for="y1" class="form-label">Coordenada Y1:</label>
+                <input type="number" step="any" class="form-control" id="y1" name="y1" value="{{ y1 }}">
+            </div>
+        </div>
+
+        <!-- Punto B (x2, y2) -->
+        <div class="col-md-6 mb-3">
+            <h4>Punto B (x2, y2)</h4>
+            <div class="mb-2">
+                <label for="x2" class="form-label">Coordenada X2:</label>
+                <input type="number" step="any" class="form-control" id="x2" name="x2" value="{{ x2 }}">
+            </div>
+            <div class="mb-2">
+                <label for="y2" class="form-label">Coordenada Y2:</label>
+                <input type="number" step="any" class="form-control" id="y2" name="y2" value="{{ y2 }}">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Calcular Distancia</button>
+</form>
+
+<h1 class="mt-4">
+    La distancia es: {{ "%.2f"|format(d) }}
+</h1>
+
+{% endblock %}
